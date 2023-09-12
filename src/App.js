@@ -5,6 +5,7 @@ import Cart from './pages/Cart';
 import Layout from './components/Layout';
 
 function App() {
+
   return (
     <Routes>
       <Route element={<Layout/>}>

@@ -1,22 +1,22 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useState } from "react";
 
-function BagList({item, up, down, delate}){
-    const count = useRef(1);
+function BagList({item, delate}){
 
-    const upCount = ()=>{
-        count.current +=1
-        up(item)    
-    }
+    const[piece,setPiece] = useState(item.count)
 
-    const downCount = ()=>{
-        if(count.current === 1){
-            return;
-        }else{
-            count.current -=1
-            down(item) 
+    const up = () => {
+        const increasePiece = piece + 1
+        setPiece(increasePiece)
+    };
+
+    const down = () => {
+        if(piece == 1){
+            return
         }
-    }
+        const decreasePiece = piece - 1
+        setPiece(decreasePiece)
+    };
+
     return(
         <div className="bagItem">
             <input type="checkbox" ></input>
@@ -25,7 +25,7 @@ function BagList({item, up, down, delate}){
              <h3>{item.item_name}</h3>
              <h3>{item.price}원</h3>
              <div className="bagBtn">
-              수량 :{count.current}<button onClick={upCount}>+</button><button onClick={downCount}>-</button>
+              수량 :{piece}<button onClick={up}>+</button><button onClick={down}>-</button>
               <div className="delBtn"><button onClick={()=>delate(item)}>삭제</button>
             </div>
             </div>
