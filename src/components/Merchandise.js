@@ -1,9 +1,9 @@
 import React from "react";
 
-function Merchandise ({item, bag, setBag}) {
+function Merchandise ({ item, bag, setBag }) {
 
     const increaseBag = (item) => {
-        if(calculator(item) === item.item_name){
+        if(calculator(item) === item){
             alert('이미 같은 상품이 장바구니에 담겨있습니다!');
         }else if(bag.length < 3){
             item.count = 1;
@@ -13,15 +13,16 @@ function Merchandise ({item, bag, setBag}) {
             alert('장바구니에 상품이 담겼습니다!');
         }else{
             alert('장바구니에는 최대 3개의 물건만 남을수 있습니다!');
-        }
+        };
     };
 
     const calculator = (e) => {
         for(let i = 0; i < bag.length; i++){
+            console.log(1)
              if(bag[i] === e){
-                return e.item_name;
+                return e;
             };
-        }
+        };
     };
 
     return(
