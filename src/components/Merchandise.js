@@ -2,8 +2,18 @@ import React from "react";
 
 function Merchandise ({ item, bag, setBag }) {
 
+    const calculator = (e) => {
+        console.log(e,1)
+        for(let i = 0; i < bag.length; i++){
+             if(bag[i] === e){
+                return e;
+            };
+        };
+    };
+
     const increaseBag = (item) => {
-        if(calculator(item) === item){
+        const result = calculator(item)
+        if(result === item){
             alert('이미 같은 상품이 장바구니에 담겨있습니다!');
         }else if(bag.length < 3){
             item.count = 1;
@@ -16,15 +26,6 @@ function Merchandise ({ item, bag, setBag }) {
         };
     };
 
-    const calculator = (e) => {
-        for(let i = 0; i < bag.length; i++){
-            console.log(1)
-             if(bag[i] === e){
-                return e;
-            };
-        };
-    };
-
     return(
         <div className="singleItem">
             <img className="image" src={item.detail_image_url}></img>
@@ -33,7 +34,7 @@ function Merchandise ({ item, bag, setBag }) {
              <h3>{item.price}원</h3><button onClick={()=>increaseBag(item)}>장바구니</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Merchandise;

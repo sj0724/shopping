@@ -42,9 +42,11 @@ function BagList({item, delate, price, setPrice}){
              <h3>{item.item_name}</h3>
              <h3>{item.price}원</h3>
              <div className="bagBtn">
-              수량 :{piece}<button onClick={up} disabled={disabled}>+</button>
+              수량 :{piece}
+              <button onClick={up} disabled={disabled}>+</button>
               <button onClick={down} disabled={disabled}>-</button>
-              <div className="delBtn"><button onClick={()=>delate(item)}>삭제</button>
+              <div className="delBtn">
+                <button onClick={()=>delate(item)}>삭제</button>
               </div>
             </div>
             </div>

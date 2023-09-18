@@ -7,14 +7,11 @@ function Product(){
     const [list,setList] = useState(productItems);
     const [bag,setBag] = useState([]);
 
-    useEffect(()=>{
-        const localbag = localStorage.getItem('bag');
-        if(localbag)setBag(JSON.parse(localbag));
-    },[]);
+    let mainContents;
 
-    return(
-        <>
-         <div className="Board">
+    if(list){
+        mainContents = (
+            <div className="Board">
             {list.map((item, index)=> (
             <Merchandise 
                 item={item}
@@ -23,6 +20,23 @@ function Product(){
                 setBag={setBag}/>
             ))}
          </div>
+        )
+    }else{
+        mainContents = (
+            <div>
+                <h2>404 Not Found</h2>
+            </div>
+        )
+    }
+
+    useEffect(()=>{
+        const localbag = localStorage.getItem('bag');
+        if(localbag)setBag(JSON.parse(localbag));
+    },[]);
+
+    return(
+        <>
+        {mainContents}
         </>
     );
 }
