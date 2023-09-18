@@ -6,6 +6,38 @@ const Cart = () => {
     const [shop,setShop] = useState([]);
     const [price,setPrice] = useState(0);
 
+    let bagContents;
+
+    if(shop.length > 0){
+        bagContents = (
+            <div>
+            <div className="cart">
+            {shop.map((item,index)=>
+            (<BagList 
+               item={item} 
+               key={index} 
+               delate={delate} 
+               shop={shop} 
+               setPrice={setPrice} 
+               price={price}/>
+               ))}
+       </div>
+       <div className="total_modal">
+           <h1>총 합계: {price} </h1>
+       </div>
+       </div>
+        )
+    }else {
+        bagContents = (
+            <div>
+                <h2>장바구니가 비었습니다!</h2>
+               <div className="total_modal">
+               <h1>총 합계: {price} </h1>
+               </div>
+            </div>
+        )
+    }
+
     useEffect(()=>{
         const shopList = localStorage.getItem('bag');
         if(shopList)setShop(JSON.parse(shopList));
@@ -23,20 +55,7 @@ const Cart = () => {
     
     return(
         <>
-         <div className="cart">
-             {shop.map((item,index)=>
-             (<BagList 
-                item={item} 
-                key={index} 
-                delate={delate} 
-                shop={shop} 
-                setPrice={setPrice} 
-                price={price}/>
-                ))}
-        </div>
-        <div className="total_modal">
-            <h1>총 합계: {price} </h1>
-        </div>
+        {bagContents}
         </>
     );
 };

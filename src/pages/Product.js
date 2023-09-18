@@ -1,10 +1,9 @@
 import React from "react"
-import productItems from "../components/productItems"
 import Merchandise from "../components/Merchandise"
 import { useState,useEffect } from "react"
 
 function Product(){
-    const [list,setList] = useState(productItems);
+    const [list,setList] = useState('');
     const [bag,setBag] = useState([]);
 
     let mainContents;
@@ -30,6 +29,13 @@ function Product(){
     }
 
     useEffect(()=>{
+        fetch('http://localhost:3000/data/productItem.json', {
+            method: 'GET',
+        })
+        .then(res => res.json())
+        .then(data => {
+            setList(data);
+        })
         const localbag = localStorage.getItem('bag');
         if(localbag)setBag(JSON.parse(localbag));
     },[]);
