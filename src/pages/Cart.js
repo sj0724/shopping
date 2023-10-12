@@ -1,20 +1,16 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import BagList from "../components/BagList";
+import { productState } from "../states/productState";
+import { useRecoilState } from "recoil";
 
 const Cart = () => {
-    const [shop,setShop] = useState([]);
+    const [bag,setBag] = useRecoilState(productState);
     const [price,setPrice] = useState(0);
 
-    useEffect(()=>{
-        const shopList = localStorage.getItem('bag');
-        if(shopList)setShop(JSON.parse(shopList));
-    },[]);
-
     function delate(e){
-        const delateList = shop.filter((item)=>item.item_no !== e.item_no);
-        setShop(delateList);
-        localStorage.setItem('bag',JSON.stringify(delateList));
+        const delateList = bag.filter((item)=>item.item_no !== e.item_no);
+        setBag(delateList);
         if(delateList.length === 0){
             setPrice(0)
         };
@@ -22,14 +18,14 @@ const Cart = () => {
 
     return(
         <>
-        {shop && (
+        {bag && (
             <div className="cart">
-            {shop.map((item)=>(
+            {bag.map((item)=>(
                 <BagList 
                 item={item} 
                 key={item.item_no} 
                 delate={delate} 
-                shop={shop} 
+                bag={bag} 
                 setPrice={setPrice} 
                 price={price}/>
             ))}

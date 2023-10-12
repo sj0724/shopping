@@ -1,37 +1,26 @@
 import React from "react"
 import Merchandise from "../components/Merchandise"
-import { useState,useEffect } from "react"
+import Paging from "../components/Paging"
+import { productList } from "../states/productState"
+import { useRecoilValue } from "recoil"
 
 function Product(){
-    const [list,setList] = useState('');
-    const [bag,setBag] = useState([]);
-
-    useEffect(()=>{
-        fetch('http://localhost:3000/data/productItem.json',{
-            method: 'GET',
-        })
-        .then(res => res.json())
-        .then(data => {
-            setList(data)
-        })
-        const localbag = localStorage.getItem('bag');
-        if(localbag)setBag(JSON.parse(localbag));
-    },[]);
+    const list = useRecoilValue(productList)
 
     return(
-        <>
+        <div>
         {list && (
             <div className="Board">
-            {list.map((item, index)=> (
+            {list.map((item)=> (
                 <Merchandise
                 item={item}
-                key={index}
-                bag={bag}
-                setBag={setBag}/>
+                key={item.item_no}
+                />
             ))}
+            <Paging list={list}/>
             </div>
         )}
-        </>
+        </div>
     );
 }
 

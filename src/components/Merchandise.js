@@ -1,6 +1,9 @@
 import React from "react";
+import { productState } from "../states/productState";
+import { useRecoilState } from "recoil";
 
-function Merchandise ({ item, bag, setBag }){
+function Merchandise ({ item }){
+    const [bag, setBag] = useRecoilState(productState)
 
     const calculator = (e) => {
         for(let i = 0; i < bag.length; i++){
@@ -18,7 +21,6 @@ function Merchandise ({ item, bag, setBag }){
             item.count = 1;
             const bagList = [...bag,item];
             setBag(bagList);
-            localStorage.setItem('bag',JSON.stringify(bagList));
             alert('장바구니에 상품이 담겼습니다!');
         }else{
             alert('장바구니에는 최대 3개의 물건만 남을수 있습니다!');
