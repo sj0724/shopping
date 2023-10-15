@@ -29,6 +29,7 @@ function BagList({item, delate, price, setPrice}){
 
     const down = () => {
         if(piece === 1){
+            alert('최소 수량은 1개입니다.')
             return;
         };
         const decreasePiece = piece - 1;

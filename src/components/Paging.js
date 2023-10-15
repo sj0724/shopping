@@ -6,9 +6,8 @@ function Paging({list}){
     const [page,setPage] = useState(1);
     const handlePaging = (page) => {
         setPage(page)
-        console.log(page)
     }
-    
+
     return(
         <Pagination
             activePage={page}
