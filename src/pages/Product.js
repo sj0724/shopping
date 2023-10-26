@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
+import { useRecoilValue } from "recoil"
 import Merchandise from "../components/Merchandise"
 import Paging from "../components/Paging"
-import { productList } from "../states/productState"
-import { useRecoilValue } from "recoil"
+import SelectorOption from "../components/SelectorOption"
+import { filterProduct } from "../states/productFilterState"
 
 function Product(){
-    const list = useRecoilValue(productList)
-
+    const list = useRecoilValue(filterProduct)
     const [products, setProducts] = useState([]);
     const [count, setCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -14,6 +14,7 @@ function Product(){
     const [indexOfLastPost, setindexOfLastPost] = useState(0);
     const [indexOfFirstPost, setindexOfFirstPost] = useState(0);
     const [currentPost, setCurrentPost] = useState(0);
+    const totalPage = Math.ceil(count/postPerPage);
 
     useEffect(() => {
         setProducts(list)
@@ -21,7 +22,7 @@ function Product(){
         setindexOfLastPost(currentPage * postPerPage)
         setindexOfFirstPost(indexOfLastPost - postPerPage)
         setCurrentPost(products.slice(indexOfFirstPost, indexOfLastPost))
-    },[currentPage,indexOfFirstPost,indexOfLastPost,products,postPerPage]);
+    },[currentPage,indexOfFirstPost,indexOfLastPost,products,postPerPage, list]);
 
     const setPage = (e) => {
         setCurrentPage(e)
@@ -29,6 +30,7 @@ function Product(){
 
     return(
         <div>
+            <SelectorOption/>
         {currentPost && (
             <div className="Board">
             {currentPost.map((item)=> (
@@ -37,7 +39,7 @@ function Product(){
                 key={item.item_no}
                 />
             ))}
-            <Paging page={currentPage} count={count} setPage={setPage}/>
+            <Paging page={currentPage} totalPage={totalPage} setPage={setPage}/>
             </div>
         )}
         </div>

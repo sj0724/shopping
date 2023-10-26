@@ -12,5 +12,5 @@ export const productState = atom({
 
 export const productList = atom({
     key: 'productList',
-    default: productItems
+    default: [...productItems]
 })
