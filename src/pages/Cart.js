@@ -8,14 +8,6 @@ const Cart = () => {
     const [bag,setBag] = useRecoilState(productState);
     const [price,setPrice] = useState(0);
 
-    function delate(e){
-        const delateList = bag.filter((item)=>item.item_no !== e.item_no);
-        setBag(delateList);
-        if(delateList.length === 0){
-            setPrice(0)
-        };
-    };
-
     return(
         <>
         {bag && (
@@ -23,9 +15,7 @@ const Cart = () => {
             {bag.map((item)=>(
                 <BagList 
                 item={item} 
-                key={item.item_no} 
-                delate={delate} 
-                bag={bag} 
+                key={item.item_no}
                 setPrice={setPrice} 
                 price={price}/>
             ))}

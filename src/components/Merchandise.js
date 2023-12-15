@@ -14,12 +14,12 @@ function Merchandise ({ item }){
     };
 
     const increaseBag = (item) => {
-        const addItem = {...item}
-        const result = calculator(addItem)
+        const addItem = {...item};
+        const result = calculator(addItem);
         if(result === addItem.item_no){
             alert('이미 같은 상품이 장바구니에 담겨있습니다!');
         }else if(bag.length < 3){
-            addItem.count = 1
+            addItem.count = 1;
             const bagList = [...bag,addItem];
             setBag(bagList);
             alert('장바구니에 상품이 담겼습니다!');

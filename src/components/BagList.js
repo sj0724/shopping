@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Checkbox from "./CheckBox";
+import { useRecoilState } from "recoil";
+import { productState } from "../states/productState";
 
-function BagList({item, delate, price, setPrice}){
+function BagList({item, price, setPrice}){
 
+    const [bag,setBag] = useRecoilState(productState);
     const[piece,setPiece] = useState(item.count);
     const[checked, setChecked] = useState(false);
     const[disabled,setDisabled] = useState(false);
@@ -18,7 +21,7 @@ function BagList({item, delate, price, setPrice}){
             const total = price - e.price*piece;
             setPrice(total);
             setDisabled(false);
-            setPiece(item.count)
+            setPiece(item.count);
         };
     };
 
@@ -34,6 +37,13 @@ function BagList({item, delate, price, setPrice}){
         };
         const decreasePiece = piece - 1;
         setPiece(decreasePiece);
+    };
+
+    function delate(e){
+        const delateList = bag.filter((item)=>item.item_no !== e.item_no);
+        setBag(delateList);
+        const delatePrice = price - item.price * piece;
+        setPrice(delatePrice);
     };
 
     return(

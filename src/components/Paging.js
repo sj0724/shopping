@@ -6,7 +6,7 @@ function Paging({page, setPage, totalPage}){
     const arr = pageArr.slice(0,totalPage)
     
     const prev = () => {
-        page === 1 
+        page === 1
         ? alert('첫 페이지 입니다!')
         : setPage(page - 1);
     }
