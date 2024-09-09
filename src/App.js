@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css';
 import { Routes, Route } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import Product from './pages/Product';
