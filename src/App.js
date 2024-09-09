@@ -7,15 +7,14 @@ import Layout from './components/Layout';
 import NotFound from './pages/NotFound';
 
 function App() {
-
   return (
     <RecoilRoot>
       <Routes>
-        <Route element={<Layout/>}>
-          <Route path="/" element={<Product />}/>
-          <Route path="/cart" element={<Cart />}/>
+        <Route element={<Layout />}>
+          <Route path='/' element={<Product />} />
+          <Route path='/cart' element={<Cart />} />
         </Route>
-      <Route path="/*" element={<NotFound/>}/>
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </RecoilRoot>
   );
