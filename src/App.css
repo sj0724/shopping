@@ -7,6 +7,159 @@
   pointer-events: none;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.pagination ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+.pagination li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.pagination li:first-child{
+  border-radius: 5px 0 0 5px;
+}
+
+.pagination li:last-child{
+  border-radius: 0 5px 5px 0;
+}
+
+.pagination li{
+  text-decoration: none;
+  color: #337ab7;
+  font-size: 1rem;
+}
+
+.pagination li:hover{
+  color: white;
+  background-color: #337ab7;
+  cursor: default;
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: #337ab7;
+}
+
+
+.header {
+  background-color: lightgray;
+  display: flex;
+  justify-content:space-between;
+  padding: 10px
+}
+
+.singleItem{
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 15px;
+  display: flex;
+  float: left;
+  align-items: center;
+  width: 650px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: rgb(220, 220, 220);
+}
+
+.Board{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 300px;
+}
+
+.singleItem button{
+  width: 100px;
+}
+
+.cart{
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.alertBag{
+  display: none;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.bagItem{
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 15px;
+  display: flex;
+  float: left;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: rgb(220, 220, 220);
+}
+
+.bagBtn button{
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+
+.bagBtn{
+  display: flex;
+  height: 50px;
+  align-items: center;
+  
+}
+
+.delBtn{
+  margin-left: 30px;
+}
+
+.delBtn button{
+  width: 70px;
+}
+
+.bagItem input{
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.total_modal{
+  height: 100px;
+  background-color: lightgray;
+  padding: 30px;
+}
+
+.total_modal h1{
+  display: flex;
+  justify-content: center;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
