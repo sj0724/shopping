@@ -36,15 +36,19 @@ function Product() {
   };
 
   return (
-    <div>
-      <SelectorOption />
+    <div className='flex flex-col'>
+      <div className='flex flex-row-reverse'>
+        <SelectorOption />
+      </div>
       {currentPost && (
-        <div className='Board'>
+        <ul className='flex flex-col mt-[30px] justify-center items-center w-[650px] gap-4'>
           {currentPost.map((item) => (
-            <Merchandise item={item} key={item.item_no} />
+            <li key={item.item_no} className='w-full'>
+              <Merchandise item={item} />
+            </li>
           ))}
           <Paging page={currentPage} totalPage={totalPage} setPage={setPage} />
-        </div>
+        </ul>
       )}
     </div>
   );

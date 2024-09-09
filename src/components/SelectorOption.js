@@ -1,6 +1,12 @@
 import { useRecoilState } from 'recoil';
 import { productFilterState } from '../states/productFilterState';
 
+const SORT_OPTIONS = [
+  { value: 'basic', text: '기본' },
+  { value: 'score', text: '스코어순' },
+  { value: 'price', text: '가격순' },
+];
+
 function SelectorOption() {
   const [filter, setfilter] = useRecoilState(productFilterState);
 
@@ -9,13 +15,17 @@ function SelectorOption() {
   };
 
   return (
-    <div>
-      <select value={filter} onChange={updateFilter}>
-        <option value='basic'>기본</option>
-        <option value='score'>스코어순</option>
-        <option value='price'>가격순</option>
-      </select>
-    </div>
+    <select
+      value={filter}
+      onChange={updateFilter}
+      className='h-10 border rounded-md p-2 cursor-pointer'
+    >
+      {SORT_OPTIONS.map((item) => (
+        <option key={item.value} value={item.value}>
+          {item.text}
+        </option>
+      ))}
+    </select>
   );
 }
 
