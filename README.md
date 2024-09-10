@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# React 연습 및 전역변수관리 라이브러리(recoil)연습
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 사용 스킬
 
-## Available Scripts
+- React
+- recoil + recoil-persist
+- Tailwind
+- react-router-dom
 
-In the project directory, you can run:
+## 소개
+- React의 동작 방식이 익숙하지 않아서 제작해본 간단한 쇼핑몰입니다.
 
-### `npm start`
+## 프로젝트 설명
+![스크린샷 2024-09-10 오후 10 43 41](https://github.com/user-attachments/assets/ace4c827-9bbc-4729-8716-918db1b6d047)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- db를 구현해서 데이터 관리하는것은 어려워 mock 데이터를 만들어 리스트를 렌더링하고 있습니다.
+- 장바구니 버튼을 누르면 장바구니에 상품이 담깁니다.
+![스크린샷 2024-09-10 오후 10 44 44](https://github.com/user-attachments/assets/50941352-4507-47c1-a5e4-351ba1b33e31)
+- 장바구니에 담긴 상품은 갯수 조정이 가능하고 체크박스 선택시 갯수에 따라 가격이 책정됩니다.
+- recoil을 사용해 장바구니 리스트를 전역으로 관리하고 있습니다.
+- recoil-persist를 사용해 전역 데이터를 localstorage에 저장하여 데이터를 저장하고 있습니다.
+![스크린샷 2024-09-10 오후 10 45 58](https://github.com/user-attachments/assets/586ae132-939d-4a60-bf02-8da3c26e9a9d)
+- dropdown을 통해 상품을 가격, 스코어순으로 정렬이 가능합니다.
