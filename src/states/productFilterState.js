@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { productList } from './productState';
+import mockData from '../mockData.json';
 
 export const productFilterState = atom({
   key: 'productFilterState',
@@ -10,7 +10,7 @@ export const filterProduct = selector({
   key: 'filterProduct',
   get: ({ get }) => {
     const filter = get(productFilterState);
-    const list = get(productList);
+    const list = mockData;
 
     switch (filter) {
       case 'score':

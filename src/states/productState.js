@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
-import productItems from '../components/productItems';
 import { recoilPersist } from 'recoil-persist';
+import mockData from '../mockData.json';
 
 const { persistAtom } = recoilPersist();
 
@@ -12,5 +12,5 @@ export const productState = atom({
 
 export const productList = atom({
   key: 'productList',
-  default: [...productItems],
+  default: [...mockData],
 });
