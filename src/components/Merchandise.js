@@ -21,6 +21,7 @@ function Merchandise({ item }) {
     const result = calculator(addItem);
     if (result === addItem.item_no) {
       alert('이미 같은 상품이 장바구니에 담겨있습니다!');
+      return;
     }
     if (bag.length < 3) {
       addItem.count = 1;
@@ -33,19 +34,19 @@ function Merchandise({ item }) {
   };
 
   return (
-    <div className='flex p-4 rounded-lg gap-6 shadow-lg hover:bg-slate-100'>
+    <div className='flex gap-6 p-4 rounded-lg shadow-lg hover:bg-slate-100'>
       <img
-        className='w-52 h-52 rounded-md aspect-square'
+        className='rounded-md w-52 h-52 aspect-square'
         src={item.detail_image_url}
         alt='상품 이미지'
       />
-      <div className='flex flex-col w-full justify-between py-4'>
+      <div className='flex flex-col justify-between w-full py-4'>
         <p className='text-2xl font-semibold'>{item.item_name}</p>
-        <div className='flex justify-between items-center'>
+        <div className='flex items-center justify-between'>
           <p className='text-xl font-semibold'>가격 : {item.price}원</p>
           <button
             onClick={() => increaseBag(item)}
-            className='bg-white w-32 rounded-md border h-10 hover:bg-gray-200'
+            className='w-32 h-10 bg-white border rounded-md hover:bg-gray-200'
           >
             장바구니
           </button>
